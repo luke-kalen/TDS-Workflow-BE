@@ -112,4 +112,35 @@ class UserController extends Controller
     {
         $this->update($request, Auth::user()->id);
     }
+
+    public function setup(Request $request)
+    {
+      $credentials = [
+        'email' => $request->email,
+        'password' => $request->password
+      ];
+    
+      if (!Auth::attempt($credentials)) {
+        return  response()->json(["message" => "Forbidden", "reason" => "User does not exist"], 403);
+        // $user = new \App\Models\User();
+    
+        // $user->name = 'Admin';
+        // $user->email = $credentials['email'];
+        // $user->password = Hash::make($credentials['password']);
+        // $user->is_admin = true;
+    
+        // $user->save();
+        // if (Auth::attempt($credentials)) {
+        //     $user = Auth::user();
+        //     $token = $user->createToken('token', ['create', 'update', 'delete']);
+        //     return $token->plainTextToken;
+        // }
+      }
+      if (Auth::attempt($credentials)) {
+          $user = Auth::user();
+          $token = $user->createToken('token', ['create', 'update', 'delete']);
+          return $token->plainTextToken;
+      }
+      return 'Setup failed!';
+    }
 }
