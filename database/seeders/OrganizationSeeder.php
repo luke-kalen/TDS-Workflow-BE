@@ -15,7 +15,7 @@ class OrganizationSeeder extends Seeder
     public function run()
     {
         DB::table('organizations')->insert([
-            'name' => 'Kalen Marketing Solutions',
+            'name' => 'Target Digital Solutions',
         ]);
         DB::table('organizations')->insert([
             'name' => 'A Concrete',
