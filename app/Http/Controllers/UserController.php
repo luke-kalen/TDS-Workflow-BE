@@ -59,6 +59,7 @@ class UserController extends Controller
           'email' => $request['email'],
           'org_id' => $request['org_id'],
           'dept_id' => $request['dept_id'],
+          'role' => $request['role'],
           'is_admin' => $request['isAdmin'],
           'password' => Hash::make($request['password']),
         ]);
