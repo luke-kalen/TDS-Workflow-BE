@@ -90,8 +90,9 @@ class UserController extends Controller
         $result->update([
           'name' => $request->input('name'),
           'email' => $request->input('email'),
-          'org_id' => $request->input('org_id'),
-          'dept_id' => $request->input('dept_id'),
+          'org_id' => $request->input('orgId'),
+          'dept_id' => $request->input('deptId'),
+          'role' => $request['role'],
           'is_admin' => $request->input('isAdmin'),
         ]);
         return $result;
