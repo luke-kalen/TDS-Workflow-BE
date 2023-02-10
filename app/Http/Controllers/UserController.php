@@ -59,6 +59,7 @@ class UserController extends Controller
           'email' => $request['email'],
           'org_id' => $request['org_id'],
           'dept_id' => $request['dept_id'],
+          'role' => $request['role'],
           'is_admin' => $request['isAdmin'],
           'password' => Hash::make($request['password']),
         ]);
@@ -89,8 +90,9 @@ class UserController extends Controller
         $result->update([
           'name' => $request->input('name'),
           'email' => $request->input('email'),
-          'org_id' => $request->input('org_id'),
-          'dept_id' => $request->input('dept_id'),
+          'org_id' => $request->input('orgId'),
+          'dept_id' => $request->input('deptId'),
+          'role' => $request['role'],
           'is_admin' => $request->input('isAdmin'),
         ]);
         return $result;
@@ -106,6 +108,17 @@ class UserController extends Controller
      */
     public function destroy($id) {
       return User::destroy($id);
+    }
+
+    public function destroyMultiple(Request $request){
+      try {
+        User::destroy($request->ids);
+        return response()->json([
+            'message'=>"Posts Deleted successfully."
+        ], 200);
+      } catch(\Exception $e) {
+        report($e);
+      }
     }
 
     public function account(Request $request)
