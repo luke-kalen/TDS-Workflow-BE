@@ -110,6 +110,17 @@ class UserController extends Controller
       return User::destroy($id);
     }
 
+    public function destroyMultiple(Request $request){
+      try {
+        User::destroy($request->ids);
+        return response()->json([
+            'message'=>"Posts Deleted successfully."
+        ], 200);
+      } catch(\Exception $e) {
+        report($e);
+      }
+    }
+
     public function account(Request $request)
     {
         $this->update($request, Auth::user()->id);
