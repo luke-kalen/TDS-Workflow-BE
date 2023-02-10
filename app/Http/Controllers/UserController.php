@@ -114,7 +114,7 @@ class UserController extends Controller
       try {
         User::destroy($request->ids);
         return response()->json([
-            'message'=>"Posts Deleted successfully."
+            'message'=>"Users Deleted successfully."
         ], 200);
       } catch(\Exception $e) {
         report($e);
