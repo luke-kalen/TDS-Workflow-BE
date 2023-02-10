@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrganizationResource;
 use App\Models\Organization;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -15,11 +16,14 @@ class OrganizationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-      return OrganizationResource::collection(Organization::paginate(10));
+			if (Auth::user()->isAdmin()) {
+        return OrganizationResource::collection(Organization::all());
+			}
+			return  response()->json(["message" => "Forbidden"], 403);
     }
 
 		public function show($id) {
-			return Organization::find($id);
+      return new OrganizationResource(Organization::find($id));
 		}
 
     public function store(Request $request) {
@@ -37,5 +41,16 @@ class OrganizationController extends Controller {
 
 		public function destroy($id) {
       return Organization::destroy($id);
+    }
+
+    public function destroyMultiple(Request $request){
+      try {
+        Organization::destroy($request->ids);
+        return response()->json([
+            'message'=>"Organizations Deleted successfully."
+        ], 200);
+      } catch(\Exception $e) {
+        report($e);
+      }
     }
 }

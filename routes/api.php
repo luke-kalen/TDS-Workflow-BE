@@ -66,6 +66,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/organizations', [OrganizationController::class, 'store']);
     Route::put('/organizations/{id}', [OrganizationController::class, 'update']);
     Route::delete('/organizations/{id}', [OrganizationController::class, 'destroy']);
+    Route::delete('/organizations', [OrganizationController::class, 'destroyMultiple']);
 });
 
 use App\Models\TimeoffRequests;
