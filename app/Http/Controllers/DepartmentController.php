@@ -38,7 +38,10 @@ class DepartmentController extends Controller
   
     public function update(Request $request, $id) {
         $result = Department::find($id);
-        $result->update($request->all());
+        $result->update([
+            'name' => $request['name'],
+            'org_id' => $request['orgId'],
+        ]);
         return $result;
     }
   
