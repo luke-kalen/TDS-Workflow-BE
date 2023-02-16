@@ -17,6 +17,7 @@ class DepartmentResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'orgId' => $this->org_id,
             'employees' => UserResource::collection($this->employees)
         ];
     }

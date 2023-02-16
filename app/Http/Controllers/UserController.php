@@ -57,8 +57,8 @@ class UserController extends Controller
 				return User::create([
           'name' => $request['name'],
           'email' => $request['email'],
-          'org_id' => $request['org_id'],
-          'dept_id' => $request['dept_id'],
+          'org_id' => $request['orgId'],
+          'dept_id' => $request['deptId'],
           'role' => $request['role'],
           'is_admin' => $request['isAdmin'],
           'password' => Hash::make($request['password']),

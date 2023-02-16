@@ -30,12 +30,18 @@ class DepartmentController extends Controller
 			$request->validate([
 				'name' => 'required',
 			]);
-			return Department::create( $request->all() );
+            return Department::create([
+                'name' => $request['name'],
+                'org_id' => $request['orgId'],
+            ]);
 		}
   
     public function update(Request $request, $id) {
         $result = Department::find($id);
-        $result->update($request->all());
+        $result->update([
+            'name' => $request['name'],
+            'org_id' => $request['orgId'],
+        ]);
         return $result;
     }
   
