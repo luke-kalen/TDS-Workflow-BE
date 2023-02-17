@@ -93,6 +93,7 @@ class UserController extends Controller
           'org_id' => $request->input('orgId'),
           'dept_id' => $request->input('deptId'),
           'role' => $request['role'],
+          'avatar' => $request['avatar'],
           'is_admin' => $request->input('isAdmin'),
         ]);
         return $result;
