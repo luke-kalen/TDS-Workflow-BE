@@ -21,6 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'avatar',
+        'avatar_approved',
+        'avatar_color',
         'password',
         'org_id',
         'dept_id',
@@ -51,6 +53,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin(): bool
     {
         return $this->is_admin;
+    }
+
+    public function isAvatarApproved(): bool
+    {
+        return $this->avatar_approved;
     }
 
     public function organization()
