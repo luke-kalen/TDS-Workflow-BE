@@ -15,7 +15,7 @@ class AddAvatarToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('avatar')->nullable();
-            $table->boolean('avatar_approved')->default(false);
+            $table->boolean('avatar_approved')->default(true);
         });
     }
 
