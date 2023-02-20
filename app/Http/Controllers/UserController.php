@@ -94,6 +94,7 @@ class UserController extends Controller
           'dept_id' => $request->input('deptId'),
           'role' => $request['role'],
           'avatar' => $request['avatar'],
+          'avatar_color' => $request['avatarColor'],
           'is_admin' => $request->input('isAdmin'),
         ]);
         return $result;
