@@ -25,7 +25,8 @@ class UserResource extends JsonResource
             'isAdmin' => $this->isAdmin(),
             'emailVerified' => $this->email_verified_at,
             'organization' => $this->organization,
-            'department' => $this->department
+            'department' => $this->department,
+            'workflow_tasks' => WorkflowResource::collection($this->projects)
         ];
     }
 }
