@@ -27,7 +27,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'org_id',
         'dept_id',
         'role',
-        'is_admin'
+        'is_admin',
+        'projects'
     ];
 
     /**
@@ -68,5 +69,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function department()
     {
         return $this->belongsTo(Department::class, 'dept_id');
+    }
+
+    public function campaigns() {
+        return $this->hasMany(Campaign::class, 'user_id');
     }
 }
