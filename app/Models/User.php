@@ -71,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Department::class, 'dept_id');
     }
 
-    public function projects() {
-        return $this->hasMany(Workflow::class, 'user_id');
+    public function campaigns() {
+        return $this->hasMany(Campaign::class, 'user_id');
     }
 }

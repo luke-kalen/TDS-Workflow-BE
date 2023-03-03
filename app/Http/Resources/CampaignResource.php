@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class WorkflowResource extends JsonResource
+class CampaignResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,23 +16,23 @@ class WorkflowResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'account_exec' => $this->user_id,
-            'name' => $this->advertiser_name,
-            'email' => $this->advertiser_email,
-            'contact_name' => $this->contact_name,
+            'organization' => $this->organization,
+            'account_exec' => $this->user,
             'url' => $this->url,
+            'contact_name' => $this->contact_name,
+            'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,
             'city' => $this->city,
             'state' => $this->state,
             'zip' => $this->zip,
-            'billing_phone' => $this->billing_phone,
+            'billing_contact' => $this->billing_contact,
+            'billing_email' => $this->billing_email,
             'billing_address' => $this->billing_address,
             'billing_city' => $this->billing_city,
             'billing_state' => $this->billing_state,
             'billing_zip' => $this->billing_zip,
-            'billing_contact' => $this->billing_contact,
-            'billing_email' => $this->billing_email,
+            'billing_phone' => $this->billing_phone,
         ];
     }
 }

@@ -26,7 +26,7 @@ class UserResource extends JsonResource
             'emailVerified' => $this->email_verified_at,
             'organization' => $this->organization,
             'department' => $this->department,
-            'workflow_tasks' => WorkflowResource::collection($this->projects)
+            'campaigns' => CampaignResource::collection($this->campaigns)
         ];
     }
 }
