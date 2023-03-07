@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use App\Http\Resources\CampaignResource;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
@@ -37,14 +38,14 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => [ 'required', 'string', 'email', 'max:255', Rule::unique(User::class), ],
-        ]);
-        return Workflow::create([
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => [ 'required', 'string', 'email', 'max:255', Rule::unique(User::class), ],
+        // ]);
+        return Campaign::create([
             'orgId' => $request['org_id'],
             'account_exec' => $request['user_id'],
-            'url' => $request['url'],
+            'website_url' => $request['website_url'],
             'contact_name' => $request['contact_name'],
             'email' => $request['email'],
             'phone' => $request['phone'],

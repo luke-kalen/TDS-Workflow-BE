@@ -43,6 +43,6 @@ class CreateCampaignTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaign');
+        Schema::dropIfExists('campaigns');
     }
 }
