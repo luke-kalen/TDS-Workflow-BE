@@ -11,6 +11,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProofSetController;
 use App\Http\Controllers\ProofController;
+use App\Http\Controllers\CampaignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/proofs', [ProofController::class, 'store']);
     Route::put('/proofs/{id}', [ProofController::class, 'update']);
     Route::delete('/proofs/{id}', [ProofController::class, 'destroy']);
+});
+
+use App\Models\Campaign;
+
+Route::middleware(['auth:sanctum'])->group(function () {
+  Route::get('/apps/workflow', [CampaignController::class, 'index']);
+  Route::post('/campaigns', [CampaignController::class, 'store']);
+
 });
 
 use App\Http\Controllers\ImageuploadController;
