@@ -16,10 +16,10 @@ class CreateCampaignTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('user_id');
-            $table->bigInteger('org_id');
+            $table->bigInteger('user_id')->default(0);
+            $table->bigInteger('org_id')->default(0);
             $table->string('contact_name');
-            $table->string('url');
+            $table->string('url')->default('');
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('address');
