@@ -18,8 +18,8 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('color');
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->boolean('timed');
         });
     }

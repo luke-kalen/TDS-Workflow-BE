@@ -13,7 +13,7 @@ class Campaign extends Model
       'org_id',
       'user_id',
       'contact_name',
-      'url',
+      'website_url',
       'email',
       'phone',
       'address',
