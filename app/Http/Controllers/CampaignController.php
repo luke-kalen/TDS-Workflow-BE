@@ -43,8 +43,8 @@ class CampaignController extends Controller
         //     'email' => [ 'required', 'string', 'email', 'max:255', Rule::unique(User::class), ],
         // ]);
         return Campaign::create([
-            'orgId' => $request['org_id'],
-            'account_exec' => $request['user_id'],
+            'org_id' => $request['orgId'],
+            'user_id' => $request['account_exec'],
             'website_url' => $request['website_url'],
             'contact_name' => $request['contact_name'],
             'email' => $request['email'],

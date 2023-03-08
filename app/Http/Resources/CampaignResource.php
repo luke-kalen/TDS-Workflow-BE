@@ -18,7 +18,7 @@ class CampaignResource extends JsonResource
             'id' => $this->id,
             'organization' => $this->organization,
             'account_exec' => $this->account_exec,
-            'url' => $this->url,
+            'website_url' => $this->website_url,
             'contact_name' => $this->contact_name,
             'email' => $this->email,
             'phone' => $this->phone,
