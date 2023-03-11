@@ -106,8 +106,18 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+      return Campaign::destroy($id);
+    }
+
+    public function destroyMultiple(Request $request){
+      try {
+        Campaign::destroy($request->ids);
+        return response()->json([
+            'message'=>"Campaigns Deleted successfully."
+        ], 200);
+      } catch(\Exception $e) {
+        report($e);
+      }
     }
 }
