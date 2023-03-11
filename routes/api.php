@@ -118,7 +118,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 use App\Models\Campaign;
 
 Route::middleware(['auth:sanctum'])->group(function () {
-  Route::get('/apps/workflow', [CampaignController::class, 'index']);
+  Route::get('/campaigns', [CampaignController::class, 'index']);
   Route::post('/campaigns', [CampaignController::class, 'store']);
 
 });

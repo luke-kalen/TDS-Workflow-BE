@@ -17,7 +17,10 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
+        if (Auth::user()->isAdmin()) {
+            return CampaignResource::collection(Campaign::all());
+        }
+        return  response()->json(["message" => "Forbidden"], 403);
     }
 
     /**
