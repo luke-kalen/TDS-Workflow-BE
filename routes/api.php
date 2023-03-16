@@ -118,11 +118,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 use App\Models\Campaign;
 
 Route::middleware(['auth:sanctum'])->group(function () {
+  Route::get('/campaigns/{id}', [CampaignController::class, 'show']);
   Route::get('/campaigns', [CampaignController::class, 'index']);
   Route::post('/campaigns', [CampaignController::class, 'store']);
+  Route::put('/campaigns/{id}', [CampaignController::class, 'update']);
   Route::delete('/campaigns/{id}', [CampaignController::class, 'destroy']);
   Route::delete('/campaigns', [CampaignController::class, 'destroyMultiple']);
-
 });
 
 use App\Http\Controllers\ImageuploadController;

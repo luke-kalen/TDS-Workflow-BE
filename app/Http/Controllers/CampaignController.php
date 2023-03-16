@@ -74,7 +74,7 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        //
+        return new CampaignResource(Campaign::find($id));
     }
 
     /**
@@ -95,9 +95,11 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+
+    public function update(Request $request, $id) {
+        $result = Campaign::find($id);
+        $result->update($request->all());
+        return $result;
     }
 
     /**
