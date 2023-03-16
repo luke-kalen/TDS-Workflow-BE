@@ -47,22 +47,22 @@ class CampaignController extends Controller
         // ]);
         return Campaign::create([
             'org_id' => $request['orgId'],
-            'user_id' => $request['account_exec'],
-            'website_url' => $request['website_url'],
-            'contact_name' => $request['contact_name'],
+            'user_id' => $request['userId'],
+            'website_url' => $request['websiteUrl'],
+            'contact_name' => $request['contactName'],
             'email' => $request['email'],
             'phone' => $request['phone'],
             'address' => $request['address'],
             'city' => $request['city'],
             'state' => $request['state'],
             'zip' => $request['zip'],
-            'billing_contact' => $request['billing_contact'],
-            'billing_email' => $request['billing_email'],
-            'billing_phone' => $request['billing_phone'],
-            'billing_address' => $request['billing_address'],
-            'billing_city' => $request['billing_city'],
-            'billing_state' => $request['billing_state'],
-            'billing_zip' => $request['billing_zip'],
+            'billing_contact' => $request['billingContact'],
+            'billing_email' => $request['billingEmail'],
+            'billing_phone' => $request['billingPhone'],
+            'billing_address' => $request['billingAddress'],
+            'billing_city' => $request['billingCity'],
+            'billing_state' => $request['billingState'],
+            'billing_zip' => $request['billingZip']
         ]);
     }
 
@@ -98,7 +98,25 @@ class CampaignController extends Controller
 
     public function update(Request $request, $id) {
         $result = Campaign::find($id);
-        $result->update($request->all());
+        $result->update([
+            'org_id' => $request['orgId'],
+            'user_id' => $request['userId'],
+            'website_url' => $request['websiteUrl'],
+            'contact_name' => $request['contactName'],
+            'email' => $request['email'],
+            'phone' => $request['phone'],
+            'address' => $request['address'],
+            'city' => $request['city'],
+            'state' => $request['state'],
+            'zip' => $request['zip'],
+            'billing_contact' => $request['billingContact'],
+            'billing_email' => $request['billingEmail'],
+            'billing_phone' => $request['billingPhone'],
+            'billing_address' => $request['billingAddress'],
+            'billing_city' => $request['billingCity'],
+            'billing_state' => $request['billingState'],
+            'billing_zip' => $request['billingZip']
+        ]);
         return $result;
     }
 
