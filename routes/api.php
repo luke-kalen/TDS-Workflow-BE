@@ -95,11 +95,11 @@ use App\Models\ProofSet;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/projects', [ProofSetController::class, 'index']);
-    Route::get('/campaigns/proof-sets/{id}', [ProofSetController::class, 'select']);
-    Route::get('/proof-sets/{id}', [ProofSetController::class, 'show']);
-    Route::post('/proof-sets', [ProofSetController::class, 'store']);
-    Route::put('/proof-sets/{id}', [ProofSetController::class, 'update']);
-    Route::delete('/proof-sets/{id}', [ProofSetController::class, 'destroy']);
+    Route::get('/campaigns/projects/{id}', [ProofSetController::class, 'select']);
+    Route::get('/projects/{id}', [ProofSetController::class, 'show']);
+    Route::post('/projects', [ProofSetController::class, 'store']);
+    Route::put('/projects/{id}', [ProofSetController::class, 'update']);
+    Route::delete('/projects/{id}', [ProofSetController::class, 'destroy']);
     Route::delete('/projects', [ProofSetController::class, 'destroyMultiple']);
 });
 
@@ -107,7 +107,7 @@ use App\Models\Proof;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/proofs', [ProofController::class, 'index']);
-    Route::get('/proof-sets/proofs/{id}', [ProofController::class, 'select']);
+    Route::get('/projects/proofs/{id}', [ProofController::class, 'select']);
     Route::get('/proofs/{id}', [ProofController::class, 'show']);
     Route::get('/proofs/image/{id}', [ProofController::class, 'getImage']);
     Route::post('/proofs', [ProofController::class, 'store']);
