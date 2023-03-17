@@ -9,16 +9,15 @@ class ProofSet extends Model {
 	use HasFactory;
 
 	protected $fillable = [
-		'project_id',
-		'type',
+		'campaign_id',
 		'name',
 		'notes',
-        'status',
-		'tw_project'
+		'type',
+    'status'
 	];
 
-	public function project() {
-		return $this->belongsTo(Project::class, 'project_id');
+	public function campaign() {
+		return $this->belongsTo(Campaign::class, 'campaign_id');
 	}
 
 	public function proofs() {

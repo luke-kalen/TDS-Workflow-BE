@@ -14,11 +14,11 @@ class ProofResource extends JsonResource {
   public function toArray($request) {
     return [
       'id' => $this->id,
-      'proof_set' => $this->proof_set,
-      'description' => $this->description,
-      'status' => $this->status,
+      'proofSetId' => $this->proof_set_id,
       'name' => $this->name,
-      'url' => $this->url
+      'url' => $this->url,
+      'status' => $this->status,
+      'description' => $this->description
     ];
   }
 }

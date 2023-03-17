@@ -23,7 +23,7 @@ class ProofSetController extends Controller {
   }
 
   public function select($id) {
-    return ProofSetResource::collection(ProofSet::paginate(10))->where('project_id', $id);
+    return ProofSetResource::collection(ProofSet::paginate(10))->where('campaign_id', $id);
   }
 
   public function store(Request $request) {
@@ -41,5 +41,16 @@ class ProofSetController extends Controller {
 
   public function destroy($id) {
     return ProofSet::destroy($id);
+  }
+  
+  public function destroyMultiple(Request $request){
+      try {
+        ProofSet::destroy($request->ids);
+          return response()->json([
+              'message'=>"ProofSets Deleted successfully."
+          ], 200);
+      } catch(\Exception $e) {
+          report($e);
+      }
   }
 }

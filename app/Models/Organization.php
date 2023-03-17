@@ -14,8 +14,8 @@ class Organization extends Model
 		return $this->hasMany(User::class, 'org_id');
 	}
 
-	public function projects() {
-		return $this->hasMany(Project::class, 'org_id');
+	public function campaigns() {
+			return $this->hasMany(Campaign::class, 'org_id');
 	}
 
 	public function departments() {

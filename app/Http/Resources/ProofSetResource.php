@@ -14,12 +14,12 @@ class ProofSetResource extends JsonResource {
   public function toArray($request) {
     return [
       'id' => $this->id,
-      'project' => $this->project,
-      'type' => $this->type,
-      'status' => $this->status,
+      'campaignId' => $this->campaign_id,
       'name' => $this->name,
       'notes' => $this->notes,
-      'proofs' => ProofResource::collection($this->proofs),
+      'type' => $this->type,
+      'status' => $this->status,
+      'proofs' => ProofResource::collection($this->proofs)
     ];
   }
 }

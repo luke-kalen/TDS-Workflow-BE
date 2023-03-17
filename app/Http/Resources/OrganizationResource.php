@@ -18,8 +18,7 @@ class OrganizationResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'departments' => DepartmentResource::collection($this->departments),
-            'employees' => UserResource::collection($this->employees),
-            'projects' => ProjectResource::collection($this->projects)
+            'employees' => UserResource::collection($this->employees)
         ];
     }
 }
