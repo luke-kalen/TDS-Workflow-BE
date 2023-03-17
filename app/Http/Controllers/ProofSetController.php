@@ -34,7 +34,12 @@ class ProofSetController extends Controller {
     // $request->validate([
     // 	'title' => 'required',
     // ]);
-    return ProofSet::create( $request->all() );
+    return ProofSet::create([
+      'campaign_id' => $request['campaignId'],
+      'name' => $request['name'],
+      'notes' => $request['notes'],
+      'type' => $request['type']
+    ]);
   }
 
   public function update(Request $request, $id) {
