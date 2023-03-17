@@ -94,7 +94,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 use App\Models\ProofSet;
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/proof-sets', [ProofSetController::class, 'index']);
+    Route::get('/projects', [ProofSetController::class, 'index']);
     Route::get('/campaigns/proof-sets/{id}', [ProofSetController::class, 'select']);
     Route::get('/proof-sets/{id}', [ProofSetController::class, 'show']);
     Route::post('/proof-sets', [ProofSetController::class, 'store']);

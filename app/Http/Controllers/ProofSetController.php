@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProofSetResource;
 use App\Models\ProofSet;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +16,10 @@ class ProofSetController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function index() {
-    return ProofSetResource::collection(Set::paginate(10));
+    if (Auth::user()->isAdmin()) {
+        return ProofSetResource::collection(ProofSet::all());
+    }
+    return  response()->json(["message" => "Forbidden"], 403);
   }
 
   public function show($id) {
