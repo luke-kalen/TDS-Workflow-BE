@@ -8,10 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\RequestController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ProofSetController;
 use App\Http\Controllers\ProofController;
-use App\Http\Controllers\CampaignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,22 +80,22 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::delete('/requests/{id}', [RequestController::class, 'destroy']);
 });
 
-use App\Models\Project;
+use App\Models\Campaign;
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/projects', [ProjectController::class, 'index']);
-    Route::get('/organizations/projects/{id}', [ProjectController::class, 'select']);
-    Route::get('/projects/{id}', [ProjectController::class, 'show']);
-    Route::post('/projects', [ProjectController::class, 'store']);
-    Route::put('/projects/{id}', [ProjectController::class, 'update']);
-    Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
+  Route::get('/campaigns/{id}', [CampaignController::class, 'show']);
+  Route::get('/campaigns', [CampaignController::class, 'index']);
+  Route::post('/campaigns', [CampaignController::class, 'store']);
+  Route::put('/campaigns/{id}', [CampaignController::class, 'update']);
+  Route::delete('/campaigns/{id}', [CampaignController::class, 'destroy']);
+  Route::delete('/campaigns', [CampaignController::class, 'destroyMultiple']);
 });
 
 use App\Models\ProofSet;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/proof-sets', [ProofSetController::class, 'index']);
-    Route::get('/projects/proof-sets/{id}', [ProofSetController::class, 'select']);
+    Route::get('/campaigns/proof-sets/{id}', [ProofSetController::class, 'select']);
     Route::get('/proof-sets/{id}', [ProofSetController::class, 'show']);
     Route::post('/proof-sets', [ProofSetController::class, 'store']);
     Route::put('/proof-sets/{id}', [ProofSetController::class, 'update']);
@@ -113,17 +112,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/proofs', [ProofController::class, 'store']);
     Route::put('/proofs/{id}', [ProofController::class, 'update']);
     Route::delete('/proofs/{id}', [ProofController::class, 'destroy']);
-});
-
-use App\Models\Campaign;
-
-Route::middleware(['auth:sanctum'])->group(function () {
-  Route::get('/campaigns/{id}', [CampaignController::class, 'show']);
-  Route::get('/campaigns', [CampaignController::class, 'index']);
-  Route::post('/campaigns', [CampaignController::class, 'store']);
-  Route::put('/campaigns/{id}', [CampaignController::class, 'update']);
-  Route::delete('/campaigns/{id}', [CampaignController::class, 'destroy']);
-  Route::delete('/campaigns', [CampaignController::class, 'destroyMultiple']);
 });
 
 use App\Http\Controllers\ImageuploadController;

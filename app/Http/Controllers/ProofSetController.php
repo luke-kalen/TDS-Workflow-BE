@@ -23,7 +23,7 @@ class ProofSetController extends Controller {
   }
 
   public function select($id) {
-    return ProofSetResource::collection(ProofSet::paginate(10))->where('project_id', $id);
+    return ProofSetResource::collection(ProofSet::paginate(10))->where('campaign_id', $id);
   }
 
   public function store(Request $request) {
