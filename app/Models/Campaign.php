@@ -36,4 +36,8 @@ class Campaign extends Model
     public function account_exec() {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+	public function proof_sets() {
+		return $this->hasMany(ProofSet::class, 'campaign_id');
+	}
 }
