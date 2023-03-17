@@ -42,4 +42,15 @@ class ProofSetController extends Controller {
   public function destroy($id) {
     return ProofSet::destroy($id);
   }
+  
+  public function destroyMultiple(Request $request){
+      try {
+        ProofSet::destroy($request->ids);
+          return response()->json([
+              'message'=>"ProofSets Deleted successfully."
+          ], 200);
+      } catch(\Exception $e) {
+          report($e);
+      }
+  }
 }

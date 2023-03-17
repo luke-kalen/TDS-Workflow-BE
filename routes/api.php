@@ -100,6 +100,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/proof-sets', [ProofSetController::class, 'store']);
     Route::put('/proof-sets/{id}', [ProofSetController::class, 'update']);
     Route::delete('/proof-sets/{id}', [ProofSetController::class, 'destroy']);
+    Route::delete('/projects', [ProofSetController::class, 'destroyMultiple']);
 });
 
 use App\Models\Proof;
