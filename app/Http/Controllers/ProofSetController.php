@@ -15,22 +15,26 @@ class ProofSetController extends Controller {
    *
    * @return \Illuminate\Http\Response
    */
-  public function index() {
+  public function index()
+  {
     if (Auth::user()->isAdmin()) {
         return ProofSetResource::collection(ProofSet::all());
     }
     return  response()->json(["message" => "Forbidden"], 403);
   }
 
-  public function show($id) {
-    return ProofSet::find($id);
+  public function show($id)
+  {
+    return new ProofSetResource(ProofSet::find($id));
   }
 
-  public function select($id) {
+  public function select($id)
+  {
     return ProofSetResource::collection(ProofSet::paginate(10))->where('campaign_id', $id);
   }
 
-  public function store(Request $request) {
+  public function store(Request $request)
+  {
     // $request->validate([
     // 	'title' => 'required',
     // ]);
@@ -42,17 +46,20 @@ class ProofSetController extends Controller {
     ]);
   }
 
-  public function update(Request $request, $id) {
+  public function update(Request $request, $id)
+  {
     $result = ProofSet::find($id);
     $result->update($request->all());
     return $result;
   }
 
-  public function destroy($id) {
+  public function destroy($id)
+  {
     return ProofSet::destroy($id);
   }
   
-  public function destroyMultiple(Request $request){
+  public function destroyMultiple(Request $request)
+  {
       try {
         ProofSet::destroy($request->ids);
           return response()->json([
