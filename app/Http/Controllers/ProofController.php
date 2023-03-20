@@ -33,17 +33,15 @@ class ProofController extends Controller {
   }
 
   public function store(Request $request) {
-    $request->validate([
-      'adfile' => 'required|max:500000',
-    ]);
+    // $request->validate([
+    //   'adfile' => 'required|max:500000',
+    // ]);
     $ad = Proof::create([
-      'proof_set_id' => $request->input('proof_set_id'),
-      'name' => $request->input('name'),
-      'type' => $request->input('type'),
-      'status' => $request->input('status'),
-      'comment' => $request->input('comment'),
-      'description' => $request->input('description'),
-      'url' => json_encode($request->input('url')),
+      'proof_set_id' => $request['proofSetId'],
+      'name' => $request['name'],
+      'status' => $request['status'],
+      'description' => $request['description'],
+      'url' => $request['url'],
     ]);
     
     if ($request->hasFile('adfile')) {
@@ -63,11 +61,30 @@ class ProofController extends Controller {
 
   public function update(Request $request, $id) {
     $result = Proof::find($id);
+    $result->update([
+      'proof_set_id' => $request['proofSetId'],
+      'name' => $request['name'],
+      'status' => $request['status'],
+      'description' => $request['description'],
+      'url' => $request['url'],
+    ]);
     $result->update($request->all());
     return $result;
   }
 
   public function destroy($id) {
     return Proof::destroy($id);
+  }
+  
+  public function destroyMultiple(Request $request)
+  {
+      try {
+        Proof::destroy($request->ids);
+          return response()->json([
+              'message'=>"Proofs Deleted successfully."
+          ], 200);
+      } catch(\Exception $e) {
+          report($e);
+      }
   }
 }

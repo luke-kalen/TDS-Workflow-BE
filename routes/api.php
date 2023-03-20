@@ -113,6 +113,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/proofs', [ProofController::class, 'store']);
     Route::put('/proofs/{id}', [ProofController::class, 'update']);
     Route::delete('/proofs/{id}', [ProofController::class, 'destroy']);
+    Route::delete('/proofs', [ProofController::class, 'destroyMultiple']);
 });
 
 use App\Http\Controllers\ImageuploadController;

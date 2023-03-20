@@ -49,7 +49,12 @@ class ProofSetController extends Controller {
   public function update(Request $request, $id)
   {
     $result = ProofSet::find($id);
-    $result->update($request->all());
+    $result->update([
+      'campaign_id' => $request['campaignId'],
+      'name' => $request['name'],
+      'notes' => $request['notes'],
+      'type' => $request['type']
+    ]);
     return $result;
   }
 
