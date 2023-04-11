@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'tdsworkflow'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7B037DBE3D2F47E88F64EF807B6CE5BE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_32698566D537401E914DB74513477416 }}
           package: .
