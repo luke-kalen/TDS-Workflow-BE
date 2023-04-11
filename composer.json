@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "8.2.4",
         "doctrine/dbal": "^3.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -14,7 +14,10 @@
         "laravel/framework": "^8.12",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "league/flysystem-aws-s3-v3": "^1.0"
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "symfony/css-selector": "^6.2",
+        "symfony/deprecation-contracts": "^3.2",
+        "symfony/event-dispatcher": "^6.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -51,6 +54,9 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "symfony": {
+          "require": "5.2.*"
         }
     },
     "config": {
