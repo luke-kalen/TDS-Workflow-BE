@@ -53,7 +53,8 @@ class ProofSetController extends Controller {
       'campaign_id' => $request['campaignId'],
       'name' => $request['name'],
       'notes' => $request['notes'],
-      'type' => $request['type']
+      'type' => $request['type'],
+      'status' => $request['status']
     ]);
     return $result;
   }
