@@ -27,7 +27,23 @@ class Campaign extends Model
       'billing_state',
       'billing_zip',
       'billing_phone',
+      'can_activate',
+      'status'
     ];
+
+	/**
+	 * The attributes that should be cast to native types.
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+		'can_activate' => 'boolean',
+	];
+
+	public function canActivate(): bool
+	{
+		return $this->can_activate;
+	}
 
     public function organization() {
         return $this->belongsTo(Organization::class, 'org_id');
