@@ -13,8 +13,23 @@ class ProofSet extends Model {
 		'name',
 		'notes',
 		'type',
-    'status'
+    'status',
+		'can_activate'
 	];
+
+	/**
+	 * The attributes that should be cast to native types.
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+			'can_activate' => 'boolean',
+	];
+
+	public function canActivate(): bool
+	{
+			return $this->can_activate;
+	}
 
 	public function campaign() {
 		return $this->belongsTo(Campaign::class, 'campaign_id');
