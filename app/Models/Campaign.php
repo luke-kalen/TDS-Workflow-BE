@@ -27,7 +27,7 @@ class Campaign extends Model
       'billing_state',
       'billing_zip',
       'billing_phone',
-      'can_activate',
+      'can_approve',
       'status'
     ];
 
@@ -37,12 +37,12 @@ class Campaign extends Model
 	 * @var array
 	 */
 	protected $casts = [
-		'can_activate' => 'boolean',
+		'can_approve' => 'boolean',
 	];
 
-	public function canActivate(): bool
+	public function canApprove(): bool
 	{
-		return $this->can_activate;
+		return $this->can_approve;
 	}
 
     public function organization() {

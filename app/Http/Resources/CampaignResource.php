@@ -36,7 +36,7 @@ class CampaignResource extends JsonResource
             'billingZip' => $this->billing_zip,
             'billingPhone' => $this->billing_phone,
             'projects' => ProofSetResource::collection($this->proof_sets),
-            'canActivate' => $this->canActivate(),
+            'canApprove' => $this->canApprove(),
             'status' => $this->status
         ];
     }

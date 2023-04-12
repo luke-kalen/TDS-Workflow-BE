@@ -14,7 +14,7 @@ class ProofSet extends Model {
 		'notes',
 		'type',
     'status',
-		'can_activate'
+		'can_approve'
 	];
 
 	/**
@@ -23,12 +23,12 @@ class ProofSet extends Model {
 	 * @var array
 	 */
 	protected $casts = [
-			'can_activate' => 'boolean',
+			'can_approve' => 'boolean',
 	];
 
-	public function canActivate(): bool
+	public function canApprove(): bool
 	{
-			return $this->can_activate;
+			return $this->can_approve;
 	}
 
 	public function campaign() {

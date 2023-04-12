@@ -116,7 +116,7 @@ class CampaignController extends Controller
             'billing_city' => $request['billingCity'],
             'billing_state' => $request['billingState'],
             'billing_zip' => $request['billingZip'],
-            'can_activate' => $request['canActivate'],
+            'can_approve' => $request['canApprove'],
             'status' => $request['status']
         ]);
         return $result;

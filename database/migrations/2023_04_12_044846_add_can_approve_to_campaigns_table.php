@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCanActivateToProofSetsTable extends Migration
+class AddCanApproveToCampaignsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddCanActivateToProofSetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('proof_sets', function (Blueprint $table) {
-            $table->boolean('can_activate')->default(false);
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->boolean('can_approve')->default(false);
+            $table->string('status')->default('pending');
         });
     }
 
@@ -25,8 +26,8 @@ class AddCanActivateToProofSetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('proof_sets', function (Blueprint $table) {
-            $table->dropColumn('can_activate');
+        Schema::table('campaigns', function (Blueprint $table) {
+            $table->dropColumn('can_approve', 'status');
         });
     }
 }

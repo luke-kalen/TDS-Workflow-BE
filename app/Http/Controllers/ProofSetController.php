@@ -55,7 +55,7 @@ class ProofSetController extends Controller {
       'notes' => $request['notes'],
       'type' => $request['type'],
       'status' => $request['status'],
-      'can_activate' => $request['canActivate']
+      'can_approve' => $request['canApprove']
     ]);
     return $result;
   }
