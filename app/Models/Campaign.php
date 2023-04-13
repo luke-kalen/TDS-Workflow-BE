@@ -27,7 +27,23 @@ class Campaign extends Model
       'billing_state',
       'billing_zip',
       'billing_phone',
+      'can_approve',
+      'status'
     ];
+
+	/**
+	 * The attributes that should be cast to native types.
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+		'can_approve' => 'boolean',
+	];
+
+	public function canApprove(): bool
+	{
+		return $this->can_approve;
+	}
 
     public function organization() {
         return $this->belongsTo(Organization::class, 'org_id');

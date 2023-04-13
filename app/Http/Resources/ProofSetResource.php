@@ -19,7 +19,8 @@ class ProofSetResource extends JsonResource {
       'notes' => $this->notes,
       'type' => $this->type,
       'status' => $this->status,
-      'proofs' => ProofResource::collection($this->proofs)
+      'proofs' => ProofResource::collection($this->proofs),
+      'canApprove' => $this->canApprove()
     ];
   }
 }
